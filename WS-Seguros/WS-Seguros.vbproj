@@ -96,6 +96,14 @@
     <Content Include="WebService1.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db.vb">
+      <DependentUpon>db.xsd</DependentUpon>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -129,6 +137,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="db.xsc">
+      <DependentUpon>db.xsd</DependentUpon>
+    </Content>
+    <None Include="db.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="db.xss">
+      <DependentUpon>db.xsd</DependentUpon>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
