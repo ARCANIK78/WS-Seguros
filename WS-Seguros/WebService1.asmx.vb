@@ -45,15 +45,12 @@ Public Class WebService1
                 Dim adapp As New dbTableAdapters.TPersonasTableAdapter
                 adapp.ActualizarEstado("BAJA", CI)
                 Return ("se Dio de baja el Afiliado Correctamente")
-                MsgBox("Se Dio de baja")
             Else
                 Return "El Afiliado ya se encuentra con estado de baja"
-                MsgBox("EL afiliado ya se encuentra con estado de baja")
             End If
 
         Catch ex As Exception
             Return "Error: no se pudo dar de baja al afiliado"
-            MsgBox("Error: no se pudo dat de baja al afiliado")
         End Try
     End Function
 End Class
