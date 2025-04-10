@@ -52,5 +52,25 @@ Public Class WebService1
         Catch ex As Exception
             Return "Error: no se pudo dar de baja al afiliado"
         End Try
+
     End Function
+    <WebMethod()> Public Function DarAltas(CI As String, seguroId As String) As String
+        Try
+            Dim adap As New dbTableAdapters.TAfiliacionesTableAdapter
+            Dim adaper As New dbTableAdapters.TPersonasTableAdapter
+            Dim ds As New db.TPersonasDataTable
+            adaper.ObtenerPersona(ds, CI)
+            If ds.Item(0).estado = "BAJA" Then
+                adap.Insert(CI, Date.Now, seguroId, "ALTA")
+                adaper.ActualizarEstado("ALTA", CI)
+                Return "El asegurado ha sido dado de alta correctamente!!"
+            Else
+                Return "EL afiliado se encuentra con estado de alta, no se puede dar de alta en el seguro de salud"
+            End If
+        Catch ex As Exception
+            Return "No se pudo dar de elta al segurado!!"
+        End Try
+
+    End Function
+
 End Class
