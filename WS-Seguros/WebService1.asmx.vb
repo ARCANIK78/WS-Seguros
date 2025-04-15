@@ -72,5 +72,13 @@ Public Class WebService1
         End Try
 
     End Function
+    <WebMethod()> Public Function ConsultarHistorial(CI As String) As db.HistorialAfilacionesDataTable
+        Dim adap As New dbTableAdapters.HistorialAfilacionesTableAdapter
+        Dim ds As New db.HistorialAfilacionesDataTable
+        adap.ConsultarHistorial(ds, CI)
+        Return ds
+
+    End Function
 
 End Class
+
