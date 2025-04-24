@@ -79,6 +79,11 @@ Public Class WebService1
         Return ds
 
     End Function
-
+    <WebMethod()> Public Function MostrarSeguros() As db.TSegurosDataTable
+        Dim adap As New dbTableAdapters.TSegurosTableAdapter
+        Dim ds As New db.TSegurosDataTable
+        adap.Fill(ds)
+        Return ds
+    End Function
 End Class
 
